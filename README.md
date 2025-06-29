@@ -43,13 +43,13 @@ Access ComfyUI at: **http://localhost:8188**
 
 ## 📋 Requirements
 
-| Component | Requirement |
-|-----------|-------------|
-| **GPU** | AMD RX 6000/7000+ series with ROCm support |
-| **VRAM** | 8GB minimum (16GB+ recommended) |
-| **OS** | Linux (Ubuntu 24.04+ recommended) |
-| **Docker** | Latest version with GPU support |
-| **ROCm** | Drivers 6.4+ installed on host |
+| Component  | Requirement                                |
+| ---------- | ------------------------------------------ |
+| **GPU**    | AMD RX 6000/7000+ series with ROCm support |
+| **VRAM**   | 8GB minimum (16GB+ recommended)            |
+| **OS**     | Linux (Ubuntu 24.04+ recommended)          |
+| **Docker** | Latest version with GPU support            |
+| **ROCm**   | Drivers 6.4+ installed on host             |
 
 ## 🔧 Setup Instructions
 
@@ -82,15 +82,15 @@ docker run -d \
 
 Control model downloading with the `MODEL_DOWNLOAD` environment variable:
 
-| Mode | Description | Models Included |
-|------|-------------|-----------------|
-| `default` | Essential starter (4GB) | SD 1.5 |
-| `common` | Comprehensive set (~30GB) | SD 1.5, SDXL, ControlNets, upscalers, VAE, embeddings |
-| `realistic` | Photo-realistic models (~8GB) | Realistic Vision, DreamShaper, VAE |
-| `photorealistic` | SDXL realistic (~12GB) | Juggernaut XL, RealVisXL |
-| `artistic` | Creative/stylized (~2GB) | Deliberate v2 |
-| `all` | Everything (~100GB) | All model sets combined |
-| `none` | Skip downloads | Use existing models only |
+| Mode             | Description                   | Models Included                                       |
+| ---------------- | ----------------------------- | ----------------------------------------------------- |
+| `default`        | Essential starter (4GB)       | SD 1.5                                                |
+| `common`         | Comprehensive set (~30GB)     | SD 1.5, SDXL, ControlNets, upscalers, VAE, embeddings |
+| `realistic`      | Photo-realistic models (~8GB) | Realistic Vision, DreamShaper, VAE                    |
+| `photorealistic` | SDXL realistic (~12GB)        | Juggernaut XL, RealVisXL                              |
+| `artistic`       | Creative/stylized (~2GB)      | Deliberate v2                                         |
+| `all`            | Everything (~100GB)           | All model sets combined                               |
+| `none`           | Skip downloads                | Use existing models only                              |
 
 ### Usage Examples
 
@@ -160,13 +160,13 @@ Run with: `docker compose up -d`
 
 ## 🔍 Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| **Container won't start** | Check ROCm drivers: `rocm-smi` |
-| **No GPU detected** | Verify container GPU access: `docker exec comfyui-rocm python -c "import torch; print(torch.cuda.is_available())"` |
-| **Model download fails** | Check internet connection, disk space, and logs |
-| **Out of memory** | Reduce batch size, use smaller models, ensure 8GB+ VRAM |
-| **Models not found** | Verify downloads completed and file permissions |
+| Issue                     | Solution                                                                                                           |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Container won't start** | Check ROCm drivers: `rocm-smi`                                                                                     |
+| **No GPU detected**       | Verify container GPU access: `docker exec comfyui-rocm python -c "import torch; print(torch.cuda.is_available())"` |
+| **Model download fails**  | Check internet connection, disk space, and logs                                                                    |
+| **Out of memory**         | Reduce batch size, use smaller models, ensure 8GB+ VRAM                                                            |
+| **Models not found**      | Verify downloads completed and file permissions                                                                    |
 
 ## 📄 License & Credits
 
@@ -179,4 +179,4 @@ This Docker image packages ComfyUI with ROCm support. ComfyUI is licensed under 
 
 ---
 
-🔗 **Links:** [Docker Hub](https://hub.docker.com/r/corundex/comfyui-rocm) | [GitHub](https://github.com/corundex/comfyui_rocm) | [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
+🔗 **Links:** [Docker Hub](https://hub.docker.com/r/corundex/comfyui-rocm) | [GitHub](https://github.com/corundex/comfyui-rocm) | [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
