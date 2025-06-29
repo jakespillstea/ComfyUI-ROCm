@@ -1,0 +1,53 @@
+services:
+  comfyui-rocm:
+    image: corundex/comfyui-rocm:latest
+    pull_policy: always
+    container_name: comfyui-rocm
+    hostname: comfyui-rocm
+    
+    # GPU access for AMD ROCm
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri:/dev/dri
+    
+    # Add video group for GPU access
+    group_add:
+      - video
+    
+    # Port mapping
+    ports:
+      - "8188:8188"
+
+    # Volume mapping to preserve models and data
+    volumes:
+      # Model storage (checkpoints, VAE, LoRA, etc.)
+      - ./data/models:/workspace/ComfyUI/models
+      # Generated images and outputs
+      - ./data/output:/workspace/ComfyUI/output
+      # Input images for processing
+      - ./data/input:/workspace/ComfyUI/input
+      # Custom nodes and extensions
+      - ./data/custom_nodes:/workspace/ComfyUI/custom_nodes
+      # ComfyUI user settings and workflows
+      - ./data/user:/workspace/ComfyUI/user
+      # Temporary files (optional)
+      - ./data/temp:/workspace/ComfyUI/temp
+
+    # Environment variables
+    environment:
+      # Model download behavior: default, common, realistic, photorealistic, artistic, all, none
+      - MODEL_DOWNLOAD=default
+      # ROCm environment
+      - HIP_VISIBLE_DEVICES=0
+      - CUDA_VISIBLE_DEVICES=""
+
+    # Restart policy
+    restart: unless-stopped
+    
+    # Healthcheck
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8188/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
