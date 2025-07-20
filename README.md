@@ -170,7 +170,12 @@ Run with: `docker compose up -d`
 
 ## 📄 License & Credits
 
-This Docker image packages ComfyUI with ROCm support. ComfyUI is licensed under GPL-3.0.
+This project is licensed under GPL-3.0. See the [LICENSE](LICENSE) file for details.
+
+### Third-Party Components
+- **ComfyUI**: GPL-3.0 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
+- **PyTorch**: BSD 3-Clause - [PyTorch](https://pytorch.org/)
+- **ROCm**: Various OSS licenses - [AMD ROCm](https://rocm.docs.amd.com/)
 
 **Acknowledgments:**
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI) - Node-based AI workflow interface
